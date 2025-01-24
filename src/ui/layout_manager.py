@@ -109,7 +109,8 @@ class LayoutManager:
 
     def update_typing_message(self, content: str, code: str = None):
         """Updates the current typing message or creates a new one"""
-        if code:
+        # If code is provided separately, append it to the content
+        if code and "```python" not in content:
             content = f"{content}\n```python\n{code}\n```"
             
         panel = Panel(

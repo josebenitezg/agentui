@@ -41,17 +41,23 @@ class Agent:
                     json_data = json.loads(json_response)
                     if "code" in json_data:
                         current_code = json_data["code"]
-                        self.layout_manager.update_typing_message(llm_message, current_code)
+                        # Explicitly format the message with the code
+                        formatted_message = f"{llm_message}\n```python\n{current_code}\n```"
+                        self.layout_manager.update_typing_message(formatted_message)
                         console.print(self.layout_manager.layout)
                 except json.JSONDecodeError:
                     pass
         
-        # Finalize the message
-        if llm_message:
-            self.layout_manager.finalize_message(llm_message)
+        # Finalize the message with code if present
+        final_message = llm_message
+        if current_code:
+            final_message = f"{llm_message}\n```python\n{current_code}\n```"
+        
+        if final_message:
+            self.layout_manager.finalize_message(final_message)
             console.print(self.layout_manager.layout)
         
-        return llm_message, json_response
+        return final_message, json_response
 
     def handle_code_execution(self, code: str, llm_message: str) -> bool:
         # Start by showing "Executing code..." message immediately

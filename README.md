@@ -2,6 +2,10 @@
 
 A Terminal User Interface (TUI) AI Assistant that provides intelligent responses and code execution capabilities.
 
+<div align="center">
+  <img src="./assets/cap.png" width="600" alt="TUI AI Agent Screenshot">
+</div>
+
 ## Project Structure 
 
 src/
