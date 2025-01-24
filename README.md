@@ -6,10 +6,11 @@ A Terminal User Interface (TUI) AI Assistant that provides intelligent responses
   <img src="./assets/cap.png" width="600" alt="TUI AI Agent Screenshot">
 </div>
 
-## Project Structure 
+## Project Structure
 
+```tree
 src/
-├── __init__.py          # Package initialization and version info
+├── __init__.py          
 ├── agent.py             # Main agent controller
 ├── code_executor.py     # Python code execution handling
 ├── services/
@@ -18,6 +19,7 @@ src/
 │   └── layout_manager.py # TUI layout management
 └── prompts/
     └── system.prompt    # System prompts for AI behavior
+```
 
 ## Features
 
